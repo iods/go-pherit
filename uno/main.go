@@ -1,8 +1,9 @@
-// Dark Society - Go Development
+// Dark Society Go Development
 
-// Package clause
-// Every go file can only belong to one package
-// This allows go to make it executable
+/*
+Package clause
+Every go file can only belong to one package
+ */
 package main
 
 /*
@@ -16,20 +17,23 @@ Import "fmt" lets you access fmt package's functionality
  */
 import "fmt"
 
-// function - reusable and executable block of code :)
-// entrypoint that tells Go where to start executing
-// allows go to execute the program
-// After compiling the code,
-// Go runtime will first run this function
-// you do not call the main function, Go calls it (__init__)
+/*
+Function References
+Runnable, callable, reusable and executable blocks of code :)
+
+Entrypoint that tells Go where to start executing
+Allows go to execute the program
+
+After compiling the code, Go runtime will first
+  run this function you do not call the main
+  function, Go calls it (__init__)
+*/
 func main () {
 	// functions code gos here
-	fmt.Println("Hello, Gophers")
+	var name ="Gophers"
+	fmt.Println("Hello, " + name)
 	// in Go standard output is console
 	// . after function accesses its functions
-
-	/* Exercises */
 	fmt.Println("Rye Miller")
 	fmt.Println("Tiffany Creamer")
 }
-
