@@ -1,12 +1,6 @@
 package main
 
-/*
-Package ferris includes the logic to report on whether
-  or not a grade is passing or failing.
-*/
 import "github.com/thedarksociety/go-pherit/ferris"
-
-
 
 func main()  {
 	// Everything to the end of the line is a comment
@@ -19,4 +13,5 @@ func main()  {
 
 	/* Multiline comments can be single lined too */
 	ferris.PassFail() // Comments can start anywhere on a line
+	// ferris.Conditions()
 }
