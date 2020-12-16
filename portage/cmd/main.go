@@ -6,5 +6,6 @@ func main() {
 	// portage.SlickTypes()
 	// portage.InadazeTypes()
 	// portage.SunsetTypes()
-	portage.DanziTypes()
+	// portage.DanziTypes()
+	portage.ChannelTypes()
 }
