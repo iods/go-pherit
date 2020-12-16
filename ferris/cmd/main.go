@@ -12,6 +12,7 @@ func main()  {
 	   And blank lines */
 
 	/* Multiline comments can be single lined too */
-	ferris.PassFail() // Comments can start anywhere on a line
+	// ferris.PassFail() // Comments can start anywhere on a line
 	// ferris.Conditions()
+		ferris.GuessGame()
 }
