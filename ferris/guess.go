@@ -52,4 +52,11 @@ func GuessGame() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	// [3] If guess < target, return "Your guess is too LOW.", if guess > target, return "Your guess is too HIGH."
+	if guess < target {
+		fmt.Println("Your guess is too LOW!")
+	} else if guess > target {
+		fmt.Println("Your guess is too HIGH!")
+	}
 }
