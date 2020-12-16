@@ -16,9 +16,9 @@ func ChannelTypes() {
 // channelVars Prints multiple variables of different types in Go.
 func channelVars() {
 	// declaring the variables
-	var name string
-	var length, width float64
-	var built int
+	//var name string
+	//var length, width float64
+	//var built int
 
 	// assign on one line
 	var keeper string = "John Langland"
@@ -27,9 +27,9 @@ func channelVars() {
 	var depth = 18
 
 	// assigning the variables
-	name = "Portage Point Pier"
-	length, width = 150.0, 7.0
-	built = 1891
+	name := "Portage Point Pier"
+	length, width := 150.0, 7.0
+	built := 1891
 
 	// zero values (set to false if not declared, 0 if int)
 	var lighthouse bool

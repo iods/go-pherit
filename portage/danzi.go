@@ -7,6 +7,7 @@ import (
 
 func DanziTypes() {
 	danziCheckTypes()
+	danziSwitchTypes()
 }
 
 // danziCheckTypes Returns the data type of the given inputs in Go.
@@ -18,4 +19,11 @@ func danziCheckTypes() {
 	fmt.Println(reflect.TypeOf(false))
 	fmt.Println(reflect.TypeOf(1.0))
 	fmt.Println(reflect.TypeOf("Green Danzi."))
+}
+
+func danziSwitchTypes() {
+	alpha := 1
+	fmt.Println(reflect.TypeOf(alpha))
+	beta := 2
+	fmt.Println(reflect.TypeOf(float64(beta)))
 }
