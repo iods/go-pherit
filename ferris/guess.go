@@ -19,10 +19,21 @@ package ferris
 
 import (
 	"fmt"
+	"math/rand" // Intn to generate random number
 	"strings"
+	"time" // need to seed the random number
 )
 
 func GuessGame() {
-	title := "Welcome to Ferris: Rye's Game of Guesses."
+	title := "\nWelcome to Ferris: Rye's Game of Guesses...\n"
 	fmt.Println(strings.Title(title))
+	fmt.Println("I'm thinking of a number from 0-100.")
+	fmt.Println("Guess it. you will have 10 attempts.")
+
+	// [1] Generate random # from 1 to 100, store as target
+	seconds := time.Now().Unix()
+	rand.Seed(seconds) // number of seconds since Jan 1 1970 to seed rand method
+	target := rand.Intn(100) + 1 // what is the +1 ?
+
+	fmt.Println(target)
 }
