@@ -18,8 +18,12 @@ Guess Game
 package ferris
 
 import (
+	"bufio"
 	"fmt"
+	"log"
 	"math/rand" // Intn to generate random number
+	"os"
+	"strconv"
 	"strings"
 	"time" // need to seed the random number
 )
@@ -34,6 +38,18 @@ func GuessGame() {
 	seconds := time.Now().Unix()
 	rand.Seed(seconds) // number of seconds since Jan 1 1970 to seed rand method
 	target := rand.Intn(100) + 1 // what is the +1 ?
-
 	fmt.Println(target)
+
+	// [2] Prompt the player to guess the #, store their response
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("\nWhat is your guess?...")
+	input, err := reader.ReadString('\n')
+	if err != nil {
+		log.Fatal(err)
+	}
+	input = strings.TrimSpace(input)
+	guess, err := strconv.Atoi(input)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
