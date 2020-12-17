@@ -21,29 +21,23 @@ import (
 	"bufio"
 	"fmt"
 	"log"
-	"math/rand" // Intn to generate random number
+	"math/rand"
 	"os"
 	"strconv"
 	"strings"
-	"time" // need to seed the random number
+	"time"
 )
 
 func GuessGame() {
 	title := "\nWelcome to Ferris: Rye's Game of Guesses..."
 	fmt.Println(title)
 	fmt.Println("\nI'm thinking of a number from 0-100.")
-
-	// [1] Generate random # from 1 to 100, store as target
 	seconds := time.Now().Unix()
-	rand.Seed(seconds) // number of seconds since Jan 1 1970 to seed rand method
+	rand.Seed(seconds)
 	target := rand.Intn(100) + 1 // what is the +1 ?
-	fmt.Println(target)
 	fmt.Print("\nWhat is your guess?...\n")
-	// [2] Prompt the player to guess the #, store their response
 	reader := bufio.NewReader(os.Stdin)
-
-
-	// [4] Allow up to 10 guesses, informing the player they have X guesses remaining
+	success := false
 	for guesses := 0; guesses < 10; guesses++ {
 		fmt.Println("\nYou have", 10 - guesses, "attempts left.")
 		input, err := reader.ReadString('\n')
@@ -56,7 +50,6 @@ func GuessGame() {
 			log.Fatal(err)
 		}
 
-		// [3] If guess < target, return "Your guess is too LOW.", if guess > target, return "Your guess is too HIGH."
 		if guess < target {
 			fmt.Println("\nYour guess is too LOW!")
 			continue
@@ -64,9 +57,13 @@ func GuessGame() {
 			fmt.Println("\nYour guess is too HIGH!")
 			continue
 		} else  {
-			// [5] If the guess is correct, return "Your guess is CORRECT!" and stop asking
+			success = true
 			fmt.Println("\nYour guess is CORRECT!")
 			break
 		}
+	}
+
+	if !success {
+		fmt.Println("Thanks for trying Ferris. You lose, the answer was:", target)
 	}
 }
