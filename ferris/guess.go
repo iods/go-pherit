@@ -29,34 +29,38 @@ import (
 )
 
 func GuessGame() {
-	title := "\nWelcome to Ferris: Rye's Game of Guesses...\n"
-	fmt.Println(strings.Title(title))
-	fmt.Println("I'm thinking of a number from 0-100.")
-	fmt.Println("Guess it. you will have 10 attempts.")
+	title := "\nWelcome to Ferris: Rye's Game of Guesses..."
+	fmt.Println(title)
+	fmt.Println("\nI'm thinking of a number from 0-100.")
 
 	// [1] Generate random # from 1 to 100, store as target
 	seconds := time.Now().Unix()
 	rand.Seed(seconds) // number of seconds since Jan 1 1970 to seed rand method
 	target := rand.Intn(100) + 1 // what is the +1 ?
 	fmt.Println(target)
-
+	fmt.Print("\nWhat is your guess?...\n")
 	// [2] Prompt the player to guess the #, store their response
 	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("\nWhat is your guess?...")
-	input, err := reader.ReadString('\n')
-	if err != nil {
-		log.Fatal(err)
-	}
-	input = strings.TrimSpace(input)
-	guess, err := strconv.Atoi(input)
-	if err != nil {
-		log.Fatal(err)
-	}
 
-	// [3] If guess < target, return "Your guess is too LOW.", if guess > target, return "Your guess is too HIGH."
-	if guess < target {
-		fmt.Println("Your guess is too LOW!")
-	} else if guess > target {
-		fmt.Println("Your guess is too HIGH!")
+
+	// [4] Allow up to 10 guesses, informing the player they have X guesses remaining
+	for guesses := 0; guesses < 10; guesses++ {
+		fmt.Println("\nYou have", 10 - guesses, "attempts left.")
+		input, err := reader.ReadString('\n')
+		if err != nil {
+			log.Fatal(err)
+		}
+		input = strings.TrimSpace(input)
+		guess, err := strconv.Atoi(input)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		// [3] If guess < target, return "Your guess is too LOW.", if guess > target, return "Your guess is too HIGH."
+		if guess < target {
+			fmt.Println("\nYour guess is too LOW!")
+		} else if guess > target {
+			fmt.Println("\nYour guess is too HIGH!")
+		}
 	}
 }
