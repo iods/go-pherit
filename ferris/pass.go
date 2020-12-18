@@ -1,11 +1,9 @@
 package ferris
 
 import (
-	"bufio" // buffered reader
 	"fmt"   // format
+	"github.com/thedarksociety/go-pherit/keyboard"
 	"log"
-	"os"
-	"strconv"
 	"strings" // strings package
 )
 
@@ -20,26 +18,16 @@ func PassFail() {
 	// fmt.Print doesnt skip to a new line, we can grab input
 	fmt.Print("Enter a grade: ")
 
-	// read (receive and store) input from stdin
-	// all input from the keyboard is read as a string.
-	reader := bufio.NewReader(os.Stdin)
-	input, err := reader.ReadString('\n')
+	grade, err := keyboard.GetFloat()
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	input = strings.TrimSpace(input)
-	grade, err := strconv.ParseFloat(input, 64)
-
 	var status string
-
-	// scope is important, must be declared
-	// cannot be :=
 	if grade >= 60 {
 		status = "Passing"
 	} else {
 		status = "Failing"
 	}
-
 	fmt.Println(status)
 }
