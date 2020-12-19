@@ -10,7 +10,7 @@ import (
 auJus Returns an example of using integers in an array.
 */
 func auJus() {
-	var primes [5]int
+	primes := [5]int{2, 3, 5, 7, 11}
 	primes[0] = 2
 	primes[1] = 3
 	fmt.Println(primes[0])
@@ -49,10 +49,7 @@ func main() {
 	title := "Steak: Arrays in Go."
 	fmt.Println(strings.Title(title))
 
-	var notes [7]string
-	notes[0] = "do"
-	notes[1] = "re"
-	notes[2] = "mi"
+	var notes = [7]string{"do", "re", "mi", "fa", "so", "la", "ti"}
 	fmt.Println(notes[0])
 	fmt.Println(notes[1])
 	fmt.Println(notes[3])
