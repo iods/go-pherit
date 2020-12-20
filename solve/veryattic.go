@@ -3,42 +3,20 @@ Exercise:
 Using a variadic function, generate the output:
 16
 7
-
-Code Magnets:
-for _, number
-:=
-))
-int
-...
-(
-)
-}
-sum(
-,
-import "fmt"
-{
-}
-{
-}
-sum(
-4
-var sum int = 0
-func main() {
-7
-1
-,
-package main
-func sum
-fmt.Println(
-))
-sum += number
-return sum
-int
-9
-2
-numbers
-range
-numbers
-fmt.Println(
-,
 */
+package main
+
+import "fmt"
+
+func sum(numbers ...int) int {
+	var sum int = 0
+	for _, number := range numbers {
+		sum += number
+	}
+	return sum
+}
+
+func main() {
+	fmt.Println(sum(7, 9))
+	fmt.Println(sum(4, 1, 2))
+}
