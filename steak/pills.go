@@ -10,16 +10,31 @@ import (
 auJus Returns an example of using integers in an array.
 */
 func auJus() {
-	primes := []int{
+	// this is what happens when you don't reassign it back
+	// to the original var
+	prime := []int{
 		2,
 		3,
 		5,
 		7,
 		11,
 	}
-	fmt.Println(primes[0])
-	fmt.Println(primes[2])
+
+	primes := append(prime, 13)
+	primer := append(primes, 15)
+	primed := append(primer, 17)
+
+	fmt.Println(prime)
 	fmt.Println(primes)
+	fmt.Println(primer)
+	fmt.Println(primed)
+
+	primed[0] = 4
+
+	fmt.Println(prime)
+	fmt.Println(primes)
+	fmt.Println(primer)
+	fmt.Println(primed)
 }
 
 /*
@@ -64,6 +79,13 @@ func medium() {
 	for _, letter := range letters {
 		fmt.Println(letter)
 	}
+
+	sliceOne := letters[0:3]
+	sliceTwo := letters[2:5]
+
+	letters[2] = "X" // changing the underlying array will change the slice
+
+	fmt.Println(sliceOne, sliceTwo)
 }
 
 /*
@@ -71,8 +93,13 @@ mediumWell Returns an example of using for...range loops with arrays. Stupid sim
 */
 func mediumWell() {
 	var words = [6]string{"alpha", "beta", "charlie", "delta", "echo", "foxtrot"}
+	others := words[0:3]
 	for index, word := range words {
 		fmt.Println(index, word)
+	}
+
+	for i, other := range others {
+		fmt.Println(i, other)
 	}
 }
 
@@ -81,8 +108,13 @@ well Returns an example of using a blank identifier in a for...range loop.
 */
 func well() {
 	var words = [6]string{"alpha", "beta", "charlie", "delta", "echo", "foxtrot"}
+	i, j := 1, 5
+	others := words[i:j]
 	for index, _ := range words {
 		fmt.Println(index)
+	}
+	for i, other := range others {
+		fmt.Println(i, other)
 	}
 }
 
