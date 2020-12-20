@@ -10,18 +10,39 @@ import (
 	"strconv"
 )
 
+/*
+twoInt Returns a slice using a variadic function.
+*/
+func twoInt(values ...int) { // expected two params
+	fmt.Println(values)
+}
+
+/*
+severalStrings Returns an empty slice when no arguments are received.
+*/
+func severalStrings(strings ...string) {
+	fmt.Println(strings)
+}
+
+func average(numbers ...float64) float64 {
+	var sum float64 = 0 // var to hold the sum of the args
+	for _, number := range numbers {
+		sum += number
+	}
+	return sum / float64(len(numbers))
+}
+
 func main() {
 	arguments := os.Args[1:] // get slice of strings, all but first element (program)
 
-	var sum float64 = 0 // var to hold sum of numbers
+	var numbers []float64 // var to hold sum of numbers
 	for _, argument := range arguments {
 		number, err := strconv.ParseFloat(argument, 64)
 		if err != nil {
 			log.Fatal(err) // if err converting string, log and exit
 		}
-		sum += number
+		numbers = append(numbers, number)
 	}
 
-	n := float64(len(arguments)) // length of the slice can be used
-	fmt.Printf("Average: %0.2f\n", sum / n) // calculate the average and print it
+	fmt.Printf("Average: %0.2f\n", average(numbers...)) // calculate the average and print it
 }
