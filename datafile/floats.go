@@ -6,32 +6,33 @@ import (
 	"strconv"
 )
 
-func GetFloats(filename string) ([5]float64, error) {
-	var numbers [5]float64
+/*
+GetFloats Reads a string from a line of a file and converts it to a float64.
+*/
+func GetFloats(filename string) ([]float64, error) { // return a slice not an array
+	var numbers []float64 // nil by default, append treats nil like empty
 
 	file, err := os.Open(filename) // open the provided filename
 	if err != nil {
-		return numbers, err
+		return nil, err
 	}
 
-	i := 0 // tracks the array index to assign to
 	scanner := bufio.NewScanner(file)
-
 	for scanner.Scan() {
-		numbers[i], err = strconv.ParseFloat(scanner.Text(), 64) // convert line by line string to float
+		number, err := strconv.ParseFloat(scanner.Text(), 64) // convert line by line string to float
 		if err != nil {
-			return numbers, err
+			return nil, err // return nil, not the slice.
 		}
-		i++
+		numbers = append(numbers, number)
 	}
 
 	err = file.Close() // close for resources
 	if err != nil {
-		return numbers, err // if there was an error closing it, report it
+		return nil, err // if there was an error closing it, report it
 	}
 
-	if scanner.Err() != nil {
-		return numbers, scanner.Err() // and another one, and another one
+	if scanner.Err() != nil { // error during a scan?
+		return nil, scanner.Err() // return nil instead of the slice.
 	}
 
 	return numbers, nil // finally return the array of numbers and nil error
