@@ -13,6 +13,23 @@ Produce the following output:
 
 import "fmt"
 
+func two() {
+	array := [5]string{"a", "b", "c", "d", "e"}
+	slice := array[1:3]
+	slice = append(slice, "x")
+	slice = append(slice, "y", "z")
+
+	for _, letter := range slice {
+		fmt.Println(letter)
+		// b
+		// c
+		// x
+		// y
+		// z
+	}
+}
+
+
 func main() {
 	// they are of different types, what do we do? float, int, and string.
 
@@ -37,4 +54,6 @@ func main() {
 		// 2 c
 
 	}
+
+	two()
 }
