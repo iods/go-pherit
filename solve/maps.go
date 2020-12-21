@@ -24,4 +24,28 @@ func main() {
 	clothing := map[string]float64{"shirt": 39.99, "pants": 59.99}
 	fmt.Println("Shirt:", clothing["shirt"])
 	fmt.Println("Pants:", clothing["pants"])
+
+
+	data := []string{"a", "c", "e", "a", "e"}
+	counts := make(map[string]int)
+
+	fmt.Println(data)
+	fmt.Println(counts)
+
+	for _, item := range data {
+		counts[item]++
+	} // [a:2 c:1 e:2]
+
+	fmt.Println(counts)
+
+	letters := []string{"a", "b", "c", "d", "e"}
+
+	for _, letter := range letters {
+		count, ok := counts[letter]
+		if !ok {
+			fmt.Printf("%s: not found\n", letter)
+		} else {
+			fmt.Printf("%s: %d\n", letter, count)
+		}
+	}
 }
