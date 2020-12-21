@@ -37,27 +37,13 @@ func countCourses() {
 		log.Fatal(err)
 	}
 
-	var names []string // variable to hold list of course names
-	var counts []int // variable to hold slice of times each course occurs
-
+	counts := make(map[string]int)
 	for _, line := range lines {
-		matched := false
-
-		for i, name := range names {
-			if name == line {
-				counts[i]++
-				matched = true
-			}
-		}
-
-		if matched == false {
-			names = append(names, line)
-			counts = append(counts, 1)
-		}
+		counts[line]++
 	}
 
-	for i, name := range names {
-		fmt.Printf("%s: %d\n", name, counts[i])
+	for name, count := range counts {
+		fmt.Printf("Times Played at %s: %d\n", name, count)
 	}
 }
 
@@ -75,11 +61,39 @@ func main() {
 	//
 	//fmt.Printf("Average: %0.2f\n", average(numbers...)) // calculate the average and print it
 
-	lines, err := datafile.GetStrings("courses.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println(lines)
-	fmt.Println("-----------------------------")
+	//lines, err := datafile.GetStrings("courses.txt")
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
+	//fmt.Println(lines)
+	//fmt.Println("-----------------------------")
+	fmt.Println("Courses Played:")
+
 	countCourses()
+
+	// create an empty map
+	empty := map[string]float64{}
+	fmt.Println(empty)
+
+	//var ranks map[string]int
+	//ranks = make(map[string]int)
+	//
+	ranks := make(map[string]int)
+
+	ranks["hard"] = 1
+	ranks["medium"] = 2
+	ranks["easy"] = 3
+
+	courses := map[string]int{
+		"Buffalo Ridge": ranks["hard"],
+		"Vail Golf Course": ranks["medium"],
+		"The Ridge At Castle Pines": ranks["hard"],
+		"Riverdale Dunes": ranks["easy"],
+		"Interlocken": ranks["hard"],
+		"Indian Hills": ranks["easy"],
+	}
+
+	for name, rank := range courses {
+		fmt.Println(name, rank)
+	}
 }
