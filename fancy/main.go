@@ -5,29 +5,28 @@ import (
 	"github.com/thedarksociety/go-pherit/structs"
 )
 
-func printInfo(s *magazine.Subscriber) {
-	fmt.Println("Name:", s.Name)
-	fmt.Println("Monthly rate:", s.Rate)
-	fmt.Println("Is Active:", s.Active)
-}
-
-func defaultSubscriber(name string) *magazine.Subscriber {
-	var s magazine.Subscriber
-	s.Name = name
-	s.Rate = 5.99
-	s.Active = true
-	return &s
-}
-
-func applyDiscount(s *magazine.Subscriber) {
-	s.Rate = 4.99
-}
-
 func main() {
-	subscriber1 := defaultSubscriber("Rye Miller")
-	applyDiscount(subscriber1)
-	printInfo(subscriber1)
+	subscriber := magazine.Subscriber{Name: "Rye Miller"}
+	subscriber.HomeAddress.Street = "1469 Deer Blvd."
+	subscriber.HomeAddress.City = "Avon"
+	subscriber.HomeAddress.State = "CO"
+	subscriber.HomeAddress.PostalCode = "81620"
 
-	sub2 := defaultSubscriber("Tiffany Creamer")
-	printInfo(sub2)
+	employee := magazine.Employee{Name: "Tiffany Creamer"}
+	employee.HomeAddress.Street = "88 E Way Blvd."
+	employee.HomeAddress.City = "Denver"
+	employee.HomeAddress.State = "CO"
+	employee.HomeAddress.PostalCode = "80238"
+
+	fmt.Println("Subscriber Name:", subscriber.Name)
+	fmt.Println("Street:", subscriber.HomeAddress.Street)
+	fmt.Println("City:", subscriber.HomeAddress.City)
+	fmt.Println("State:", subscriber.HomeAddress.State)
+	fmt.Println("Zip:", subscriber.HomeAddress.PostalCode)
+
+	fmt.Println("Employee Name:", employee.Name)
+	fmt.Println("Street:", employee.HomeAddress.Street)
+	fmt.Println("City:", employee.HomeAddress.City)
+	fmt.Println("State:", employee.HomeAddress.State)
+	fmt.Println("Zip:", employee.HomeAddress.PostalCode)
 }
