@@ -3,20 +3,20 @@ package magazine
 type Person struct {
 	Name        string
 	Age         int
-	HomeAddress Address
+	Address
 }
 
 type Employee struct {
 	Name        string
 	Salary      float64
-	HomeAddress Address
+	Address
 }
 
 type Subscriber struct {
 	Name        string
 	Rate        float64
 	Active      bool
-	HomeAddress Address
+	Address
 }
 
 type Address struct {
