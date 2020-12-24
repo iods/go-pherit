@@ -33,17 +33,18 @@ func repeatLine(line string, times int) {
 	}
 }
 
-func double(number *int) {
-	*number *= 2
-	fmt.Println(number)
+func (n *Number) Doubles() {
+	*n *= 2
 }
 
 func main() {
 	title := "Funk: Functions in Go."
 	fmt.Println(strings.Title(title))
 
-	amounts := 3
-	double(&amounts)
+	amounts := Number(4)
+	amounts.Double()
+
+
 	fmt.Println(amounts)
 
 	var amount, total float64
