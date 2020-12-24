@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/thedarksociety/go-pherit/calendar"
+	"github.com/iods/go-calendar"
 	"github.com/thedarksociety/go-pherit/structs"
 	"log"
 )
@@ -34,13 +34,13 @@ func main() {
 
 	fmt.Println(event)
 
-	subscriber := magazine.Subscriber{Name: "Rye Miller"}
+	subscriber := structs.Subscriber{Name: "Rye Miller"}
 	subscriber.Street = "1469 Deer Blvd."
 	subscriber.City = "Avon"
 	subscriber.State = "CO"
 	subscriber.PostalCode = "81620"
 
-	employee := magazine.Employee{Name: "Tiffany Creamer"}
+	employee := structs.Employee{Name: "Tiffany Creamer"}
 	employee.Street = "88 E Way Blvd."
 	employee.City = "Denver"
 	employee.State = "CO"
