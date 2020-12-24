@@ -2,10 +2,38 @@ package main
 
 import (
 	"fmt"
+	"github.com/thedarksociety/go-pherit/calendar"
 	"github.com/thedarksociety/go-pherit/structs"
+	"log"
 )
 
 func main() {
+	event := calendar.Event{}
+
+	err := event.SetYear(2020)
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = event.SetMonth(12)
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = event.SetDay(23)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	err = event.SetTitle("The cool title.")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(event.Date.Year())
+	fmt.Println(event.Date.Month())
+	fmt.Println(event.Date.Day())
+
+	fmt.Println(event)
+
 	subscriber := magazine.Subscriber{Name: "Rye Miller"}
 	subscriber.Street = "1469 Deer Blvd."
 	subscriber.City = "Avon"
