@@ -7,7 +7,7 @@ import (
 type Player interface {
 	Play(string)
 	Stop()
-}
+} // this means both TapePlayer and TapeRecorder
 
 func playlist(device Player, songs []string) {
 	for _, song := range songs {
