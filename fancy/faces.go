@@ -7,7 +7,20 @@ import (
 type Player interface {
 	Play(string)
 	Stop()
-} // this means both TapePlayer and TapeRecorder
+}
+
+
+/*
+TryOut Function to test the various methods of the TapePlayer
+and TapeRecorder types. It has a single param and the interface Player
+as it's type (pass TapePlayer or TapeRecorder).
+*/
+func TryOut(player Player) {
+	player.Play("Test Track")
+	player.Stop()
+	recorder := player.(gadget.TapeRecorder)
+	recorder.Record()
+}
 
 func playlist(device Player, songs []string) {
 	for _, song := range songs {
@@ -17,9 +30,7 @@ func playlist(device Player, songs []string) {
 }
 
 func main() {
-	mixtape := []string{"Aenima", "Everlong", "Hallelujah", "Wish You Were Here"}
-	var player Player = gadget.TapePlayer{}
-	playlist(player, mixtape)
-	player = gadget.TapeRecorder{}
-	playlist(player, mixtape)
+
+	TryOut(gadget.TapePlayer{})
+	TryOut(gadget.TapeRecorder{})
 }
