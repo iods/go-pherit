@@ -6,9 +6,11 @@ import (
 	"strings"
 )
 
+type Num int
+
 /*
 paintNeeded Function to calculate the amount of paint (in
-  liters) needed based on the area (meters) of a room.
+liters) needed based on the area (meters) of a room.
 */
 func paintNeeded(width float64, height float64) (float64, error) {
 	if width < 0 {
@@ -24,8 +26,8 @@ func paintNeeded(width float64, height float64) (float64, error) {
 
 /*
 repeatLine Example function that takes two parameters, one a
-  line (string) and two times (int), the output is then the
-  line repeated x times.
+line (string) and two times (int), the output is then the
+line repeated x times.
 */
 func repeatLine(line string, times int) {
 	for i:= 0; i < times; i++ {
@@ -33,16 +35,23 @@ func repeatLine(line string, times int) {
 	}
 }
 
-func (n *Number) Doubles() {
+/*
+Doubles Method for doubling a value of the Num type.
+*/
+func (n *Num) Doubles() {
 	*n *= 2
 }
 
+/*
+Title.
+Doubles.
+*/
 func main() {
 	title := "Funk: Functions in Go."
 	fmt.Println(strings.Title(title))
 
-	amounts := Number(4)
-	amounts.Double()
+	amounts := Num(4)
+	amounts.Doubles()
 
 
 	fmt.Println(amounts)

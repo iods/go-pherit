@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/thedarksociety/go-golph"
+	"github.com/thedarksociety/go-pherit/structs"
 )
 
 func main() {
-	var c golph.Course
+	var c structs.Course
 	c.Name = "Pebble Beach Golf Links"
 	c.Location = "Pacific Surf"
 	c.Founded = 1919
@@ -23,7 +23,7 @@ func main() {
 	fmt.Println(c.Rank)
 	fmt.Println(c.Rating)
 
-	var p golph.Player
+	var p structs.Player
 	p.Name = "Rye Miller"
 	p.Handicap = 15.4
 
