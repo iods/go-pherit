@@ -2,9 +2,21 @@ package main
 
 import "fmt"
 
-type Liters float64
-type Milliliters float64
 type Gallons float64
+func (g Gallons) String() string {
+	return fmt.Sprintf("%0.2f gal", g)
+}
+
+type Liters float64 // satisfy the stringer interface
+func (l Liters) String() string {
+	return fmt.Sprintf("%0.2f L", l)
+}
+
+type Milliliters float64
+func (m Milliliters) String() string {
+	return fmt.Sprintf("%0.2f mL", m)
+}
+
 
 func (l Liters) ToGallons() Gallons {
 	return Gallons(l * 0.264)
@@ -32,4 +44,9 @@ func main() {
 	milk := Gallons(2)
 	fmt.Printf("%0.3f gallons equals %0.3f milliliters.\n", milk, milk.ToMilliliters())
 	fmt.Printf("%0.3f gallons equals %0.3f liters.\n", milk, milk.ToLiters())
+
+
+	fmt.Println(gas)
+	fmt.Println(water)
+	fmt.Println(milk)
 }
