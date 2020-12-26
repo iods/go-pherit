@@ -18,8 +18,10 @@ as it's type (pass TapePlayer or TapeRecorder).
 func TryOut(player Player) {
 	player.Play("Test Track")
 	player.Stop()
-	recorder := player.(gadget.TapeRecorder)
-	recorder.Record()
+	recorder, ok := player.(gadget.TapeRecorder)
+	if ok {
+		recorder.Record()
+	}
 }
 
 func playlist(device Player, songs []string) {
@@ -30,7 +32,6 @@ func playlist(device Player, songs []string) {
 }
 
 func main() {
-
-	TryOut(gadget.TapePlayer{})
 	TryOut(gadget.TapeRecorder{})
+	TryOut(gadget.TapePlayer{})
 }
