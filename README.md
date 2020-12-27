@@ -3,3 +3,5 @@
 </h1>
 
 Dark Society SDK for Golang.
+
+Following the https://github.com/golang-standards/project-layout

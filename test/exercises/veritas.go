@@ -1,4 +1,4 @@
-package ferris
+package main
 
 import (
 	"fmt"

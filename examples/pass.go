@@ -1,8 +1,16 @@
-package ferris
+package main
+// Everything to the end of the line is a comment
+// Additional lines require another `//` marker
 
+/* Everything until closing marker is comment
+   This includes new lines
+
+   And blank lines */
+
+/* Multiline comments can be single lined too */
 import (
 	"fmt"   // format
-	"github.com/thedarksociety/go-pherit/keyboard"
+	"github.com/thedarksociety/go-pherit/pkg/keyboard"
 	"log"
 	"strings" // strings package
 )

@@ -15,7 +15,7 @@ Guess Game
      number, return, "Sorry, your attempts were unsuccessful. It was
      [X]" and return the target number.
 */
-package ferris
+package main
 
 import (
 	"bufio"

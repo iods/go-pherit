@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/thedarksociety/go-pherit/structs"
+	"github.com/thedarksociety/go-pherit/internal/structs"
 )
 
 func main() {
