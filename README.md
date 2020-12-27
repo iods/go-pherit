@@ -1,2 +1,5 @@
-# go-pherit
-The Dark Society introduction to golang.
+<h1 align="center">
+    <img src="https://github.com/thedarksociety/go-pherit/raw/develop/assets/gopher.png" height="200" />
+</h1>
+
+Dark Society SDK for Golang.

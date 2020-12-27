@@ -1,0 +1,1 @@
+This is the example file to solve filecheck.go
