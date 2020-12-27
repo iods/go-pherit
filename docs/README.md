@@ -1,0 +1,1 @@
+Design and user documents (in addition to the godoc generated documentation).
