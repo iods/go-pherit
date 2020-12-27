@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/iods/go-calendar"
-	"github.com/thedarksociety/go-pherit/structs"
+	"github.com/thedarksociety/go-pherit/internal/structs"
 	"log"
 )
 

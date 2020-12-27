@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/thedarksociety/go-pherit/gadget"
+	"github.com/thedarksociety/go-pherit/pkg/gadget"
 )
 
 type Player interface {

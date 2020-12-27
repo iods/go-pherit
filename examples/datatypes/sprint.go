@@ -1,10 +1,10 @@
-package main
+package datatypes
 
 import (
 	"fmt"
 )
 
-func main() {
+func Sprints() {
 	fmt.Printf("The %s cost %d cents each.\n", "gumballs", 33)
 	fmt.Printf("That will be $%f please.\n", 0.23 * 5)
 

@@ -1,4 +1,4 @@
-package portage
+package datatypes
 
 import (
 	"fmt"

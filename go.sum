@@ -1,0 +1,4 @@
+github.com/iods/go-datafile v0.0.0-20201224034725-9aff669b255b h1:F4WTsq9no7el2dmnc1IWpLS70i5JvhDqQxW4j34knas=
+github.com/iods/go-datafile v0.0.0-20201224034725-9aff669b255b/go.mod h1:qVSDN/5JYW7HOGx937U5bxHHl7pug0or20NiDO9eOas=
+github.com/iods/go-util v0.0.0-20201224082611-f66363599273 h1:xVQkn9eaxbVAy93s0hWa3iB89p1qgw3SLEOncAABKZ8=
+github.com/iods/go-util v0.0.0-20201224082611-f66363599273/go.mod h1:Rs2p8HytRnNyKX6FtjBngNjWxMvemN8ONrjukziKU2o=

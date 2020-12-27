@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/thedarksociety/go-pherit/keyboard"
+	"github.com/thedarksociety/go-pherit/pkg/keyboard"
 	"log"
 )
 

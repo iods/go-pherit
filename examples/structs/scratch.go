@@ -5,7 +5,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/thedarksociety/go-pherit/datafile"
+	"github.com/iods/go-datafile"
 	"log"
 )
 
