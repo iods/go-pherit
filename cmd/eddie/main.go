@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"log"
 	"path/filepath"
 )
 
@@ -22,12 +21,11 @@ func cursed(start int, end int) {
 /*
 scanDirectory Scans and prints the contents of the directory path provided.
 */
-func scanDirectory(path string) error {
+func scanDirectory(path string) {
 	fmt.Println("Scanning:", path)
 	files, err := ioutil.ReadDir(path) // get a slice with the dir contents
 	if err != nil {
-		fmt.Printf("Returning error from scanDirectory(\"%s\") call \n", path)
-		return err
+		panic(err)
 	}
 
 	for _, file := range files {
@@ -35,27 +33,13 @@ func scanDirectory(path string) error {
 		filePath := filepath.Join(path, file.Name())
 
 		if file.IsDir() {
-			err := scanDirectory(filePath)
-			if err != nil {
-				fmt.Printf("Returning error from scanDirectory(\"%s\") call \n", path)
-				return err
-			}
+			scanDirectory(filePath)
 		} else {
 			fmt.Println(filePath)
 		}
-
-		//fmt.Println()
-		//fmt.Printf("%s | is dir: %t | Size: %d | %s\n", file.Name(), file.IsDir(), file.Size(), file.Mode())
-		//fmt.Printf("%s\n", file.ModTime())
 	}
-
-	return nil
 }
 
 func main() {
-	err := scanDirectory("track")
-	if err != nil {
-		log.Fatal(err)
-	}
-	panic("oh no, sugar we are going down.")
+	scanDirectory("track")
 }
