@@ -18,6 +18,15 @@ func cursed(start int, end int) {
 	fmt.Printf("Returning from cursed(%d, %d) called.\n", start, end)
 }
 
+func reportPanic() {
+	p := recover()
+	if p == nil {
+		return
+	} else {
+		panic(p)
+	}
+}
+
 /*
 scanDirectory Scans and prints the contents of the directory path provided.
 */
@@ -41,5 +50,6 @@ func scanDirectory(path string) {
 }
 
 func main() {
+	defer reportPanic()
 	scanDirectory("track")
 }
