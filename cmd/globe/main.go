@@ -1,14 +1,19 @@
 package main
 
 import (
-	"flag"
-	"fmt"
+	"github.com/thedarksociety/go-pherit/pkg/grape"
+	"time"
 )
 
 func main() {
-	var port int
-	flag.IntVar(&port, "p", 8000, "specify port to use")
-	flag.Parse()
 
-	fmt.Printf("port = %d\n", port)
+	a, b, c := "https://ryemiller.io", "https://golang.org", "https://golang.org/doc"
+
+	grape.ResponseBody()
+
+	go grape.ResponseSize(a)
+	go grape.ResponseSize(b)
+	go grape.ResponseSize(c)
+
+	time.Sleep(5 * time.Second)
 }
