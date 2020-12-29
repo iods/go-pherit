@@ -1,4 +1,13 @@
 // grape is a web scraper in go
+/*
+Use short declarations for urls, go routines.
+a, b, c := "https://ryemiller.io", "https://golang.org", "https://golang.org/doc"
+grape.ResponseBody()
+go grape.ResponseSize(a)
+go grape.ResponseSize(b)
+go grape.ResponseSize(c)
+time.Sleep(5 * time.Second)
+ */
 package grape
 
 import (
@@ -8,7 +17,12 @@ import (
 	"net/http"
 )
 
-func ResponseSize(url string) {
+type Page struct {
+	URL  string
+	Size int
+}
+
+func ResponseSize(url string, channel chan Page) {
 	fmt.Println("Getting:", url)
 
 	response, err := http.Get(url)
@@ -20,7 +34,7 @@ func ResponseSize(url string) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(len(body))
+	channel <- Page{URL: url, Size: len(body)}
 }
 
 func ResponseBody() {

@@ -1,19 +1,39 @@
 package main
 
 import (
+	"fmt"
 	"github.com/thedarksociety/go-pherit/pkg/grape"
+	"github.com/thedarksociety/go-pherit/pkg/greeter"
 	"time"
 )
 
 func main() {
+	greeter.Test()
 
-	a, b, c := "https://ryemiller.io", "https://golang.org", "https://golang.org/doc"
+	channel := make(chan string)
+	go greeter.Send(channel)
+
+	greeter.ReportNap("reveiving go routine.", 5)
+	fmt.Println(<-channel)
+	fmt.Println(<-channel)
+
+	pages := make(chan grape.Page)
+	urls := []string{
+		"https://ryemiller.io",
+		"https://golang.org",
+		"https://golang.org/doc",
+	}
+
+	for _, url := range urls {
+		go grape.ResponseSize(url, pages)
+	}
+
+	for i := 0; i < len(urls); i++ {
+		page := <- pages
+		fmt.Printf("%s: %d\n", page.URL, page.Size)
+	}
 
 	grape.ResponseBody()
-
-	go grape.ResponseSize(a)
-	go grape.ResponseSize(b)
-	go grape.ResponseSize(c)
 
 	time.Sleep(5 * time.Second)
 }
