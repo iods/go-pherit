@@ -1,4 +1,9 @@
-// Dark Society Go Development
+/*
+Go-Pherit: A Learning Project and SDK in Go
+Copyright (c) 2020 Rye Miller
+https://darksociety.io
+*/
+
 
 /*
 Package clause

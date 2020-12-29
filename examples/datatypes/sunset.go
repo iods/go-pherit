@@ -11,7 +11,3 @@ func SunsetTypes() {
 	title := "Sunset: Boolean Types in Go."
 	fmt.Println(strings.Title(title))
 }
-
-func sunsetBool() {
-
-}
