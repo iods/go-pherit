@@ -3,15 +3,21 @@ package prose
 import "testing"
 
 func TestTwoElements(t *testing.T) {
-	list := []string{"orange", "apple"}
-	if JoinWithCommas(list) != "orange and apple" {
-		t.Error("did not match expected value")
+	list := []string{"apple", "orange"}
+	want := "apple and orange"
+	got := JoinWithCommas(list)
+	if got != want {
+		// t.Error("did not match expected value")
+		t.Errorf("JoinWithCommas(%#v) = \"%s\", want \"%s\"", list, got, want)
 	}
 }
 
 func TestThreeElements(t *testing.T) {
 	list := []string{"orange", "apple", "cherry"}
-	if JoinWithCommas(list) != "orange, apple, and cherry" {
-		t.Error("did not match the expected value")
+	want := "orange, apple, and cherry"
+	got := JoinWithCommas(list)
+	if got != want {
+		// t.Error("did not match expected value")
+		t.Errorf("JoinWithCommas(%#v) = \"%s\", want \"%s\"", list, got, want)
 	}
 }
