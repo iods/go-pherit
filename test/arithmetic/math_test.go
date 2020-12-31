@@ -23,6 +23,12 @@ func TestMultiply(t *testing.T) {
 	}
 }
 
+func TestDivide(t *testing.T) {
+	if arithmetic.Divide(-4, 2) != -2 {
+		t.Error("-4 divided by 2 did not equal -2")
+	}
+}
+
 func TestNegate(t *testing.T) {
 	if arithmetic.Negate(-2) != 2 {
 		t.Error("-2 did not turn into a positive 2")

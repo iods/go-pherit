@@ -19,6 +19,12 @@ func Multiply(a float64, b float64) float64 {
 }
 
 /*
+Divide Returns the quotient of two numbers. */
+func Divide(a float64, b float64) float64 {
+	return a / b
+}
+
+/*
 Negate Returns the expression with it's sign changed.
  */
 func Negate(a float64) float64 {
