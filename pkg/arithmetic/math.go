@@ -25,6 +25,12 @@ func Divide(a float64, b float64) float64 {
 }
 
 /*
+Remainder Returns the remainder after dividing two numbers. */
+func Remainder(a int, b int) int {
+	return a % b
+}
+
+/*
 Negate Returns the expression with it's sign changed.
  */
 func Negate(a float64) float64 {

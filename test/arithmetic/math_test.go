@@ -29,6 +29,12 @@ func TestDivide(t *testing.T) {
 	}
 }
 
+func TestRemainder(t *testing.T) {
+	if arithmetic.Remainder(5, 2) != 1 {
+		t.Error("the remainder of 5 / 2 did not equal 1")
+	}
+}
+
 func TestNegate(t *testing.T) {
 	if arithmetic.Negate(-2) != 2 {
 		t.Error("-2 did not turn into a positive 2")
