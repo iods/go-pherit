@@ -29,7 +29,7 @@ func main() {
 	counter--     // 2
 	counter += 5  // 3
 	counter *= 10 // 4
-	counter /= 5
+	counter /= 5  // 5
 
 	fmt.Println(counter)
 }
