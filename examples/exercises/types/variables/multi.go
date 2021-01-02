@@ -1,4 +1,12 @@
 /*
+Go-Pherit: A Learning Experience and personal SDK in Golang
+Copyright (c) 2020 Rye Miller
+https://darksociety.io
+*/
+
+package main
+
+/*
 Exercise:
 
 1. Assign "go" to lang variable and assign 2 to version variable
@@ -24,7 +32,6 @@ blue red
 Notes:
 
 */
-package main
 
 import "fmt"
 

@@ -1,4 +1,12 @@
 /*
+Go-Pherit: A Learning Experience and personal SDK in Golang
+Copyright (c) 2020 Rye Miller
+https://darksociety.io
+*/
+
+package main
+
+/*
 Exercise: Declare variables
 
 1. Declare and print two vars using multiple variable declaration
@@ -17,7 +25,6 @@ Output:
 Notes:
 
 */
-package main
 
 import "fmt"
 
