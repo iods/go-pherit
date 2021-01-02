@@ -1,4 +1,12 @@
 /*
+Go-Pherit: A Learning Experience and personal SDK in Golang
+Copyright (c) 2020 Rye Miller
+https://darksociety.io
+*/
+
+package main
+
+/*
 Exercise:
 
 1. Change `color` variable's value to "blue"
@@ -14,7 +22,6 @@ Output:
 Notes:
 
 */
-package main
 
 import "fmt"
 

@@ -1,4 +1,12 @@
 /*
+Go-Pherit: A Learning Experience and personal SDK in Golang
+Copyright (c) 2020 Rye Miller
+https://darksociety.io
+*/
+
+package main
+
+/*
 Exercise: Short declarations
 
 1. Declare and print four variables using the short declaration statement.
@@ -23,7 +31,6 @@ Output:
 Notes:
 
 */
-package main
 
 import "fmt"
 

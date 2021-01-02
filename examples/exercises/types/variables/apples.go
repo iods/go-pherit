@@ -1,4 +1,12 @@
 /*
+Go-Pherit: A Learning Experience and personal SDK in Golang
+Copyright (c) 2020 Rye Miller
+https://darksociety.io
+*/
+
+package main
+
+/*
 Exercise:
 
 1. Print the following
@@ -14,7 +22,6 @@ Bonus:
   * Print using Println and Printf
 
 */
-package main
 
 import "fmt"
 

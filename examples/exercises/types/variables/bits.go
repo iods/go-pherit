@@ -1,4 +1,12 @@
 /*
+Go-Pherit: A Learning Experience and personal SDK in Golang
+Copyright (c) 2020 Rye Miller
+https://darksociety.io
+*/
+
+package main
+
+/*
 Exercise: Declare variables (w/ bits)
 
 1. Declare a few variables using the following types:
@@ -22,7 +30,6 @@ Output:
 Notes:
 
 */
-package main
 
 import "fmt"
 
