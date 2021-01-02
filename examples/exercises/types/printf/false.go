@@ -1,4 +1,14 @@
 /*
+Go-Pherit: A Learning Experience and personal SDK in Golang
+Copyright (c) 2020 Rye Miller
+https://darksociety.io
+*/
+
+package main
+
+import "fmt"
+
+/*
 
 Exercise:
 
@@ -10,9 +20,6 @@ These are false claims.
 Notes:
 
 */
-package main
-
-import "fmt"
 
 func main() {
 	tf := false
