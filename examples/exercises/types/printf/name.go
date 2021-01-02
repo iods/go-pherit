@@ -1,4 +1,14 @@
 /*
+Go-Pherit: A Learning Experience and personal SDK in Golang
+Copyright (c) 2020 Rye Miller
+https://darksociety.io
+*/
+
+package main
+
+import "fmt"
+
+/*
 
 Exercise:
 
@@ -11,9 +21,6 @@ Notes:
   * store the formatting specifier (first arg of sprintf) in a variable
 
 */
-package main
-
-import "fmt"
 
 func main() {
 	message := "My first name is %s and last name is %s\n"

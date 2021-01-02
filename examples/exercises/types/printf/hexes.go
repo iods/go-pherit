@@ -1,4 +1,14 @@
 /*
+Go-Pherit: A Learning Experience and personal SDK in Golang
+Copyright (c) 2020 Rye Miller
+https://darksociety.io
+*/
+
+package main
+
+import "fmt"
+
+/*
 Exercise: Print hexes
 1. Print 0 to 9 in hexadecimal
 2. Print 10 to 15 in hexadecimal
@@ -18,10 +28,9 @@ Output:
 NOTES:
   * https://stackoverflow.com/questions/910309/how-to-turn-hexadecimal-into-decimal-using-brain
   * https://simple.wikipedia.org/wiki/Hexadecimal_numeral_system
-*/
-package main
 
-import "fmt"
+*/
+
 
 func main() {
 	fmt.Println(0x0, 0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9)

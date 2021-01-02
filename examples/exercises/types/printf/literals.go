@@ -1,4 +1,14 @@
 /*
+Go-Pherit: A Learning Experience and personal SDK in Golang
+Copyright (c) 2020 Rye Miller
+https://darksociety.io
+*/
+
+package main
+
+import "fmt"
+
+/*
 Exercise: Print the literals
 
 1. Print a few integer literals
@@ -7,11 +17,6 @@ Exercise: Print the literals
 4. Print your name with a string literal
 5. Print a non-english sentence with a string literal
  */
-package main
-
-import (
-	"fmt"
-)
 
 func main() {
 	fmt.Println("Integers:", 0, 1, 2, 3, 5, 8, 13) // print a few integer literals

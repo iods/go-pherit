@@ -1,4 +1,14 @@
 /*
+Go-Pherit: A Learning Experience and personal SDK in Golang
+Copyright (c) 2020 Rye Miller
+https://darksociety.io
+*/
+
+package main
+
+import "fmt"
+
+/*
 
 Exercise:
 
@@ -11,9 +21,6 @@ Notes:
   * update the year to your own
 
 */
-package main
-
-import "fmt"
 
 func main() {
 	fmt.Printf("I'm %d years old.\n", 34)
