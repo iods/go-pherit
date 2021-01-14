@@ -1,0 +1,21 @@
+ARG GOLANG_VER=1.15
+FROM golang:$GOLANG_VER
+
+LABEL \
+    maintaner="Rye Miller" \
+    version="0.0"
+
+# Set Environment Vars
+ENV PORT=8000
+
+WORKDIR /app
+# COPY go.mod .
+# RUN go mod download
+
+COPY . .
+
+RUN \
+    cd cmd/charlotte \
+    && go build .
+
+CMD ["./cmd/charlotte/charlotte"]
