@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+
+  roman:
+    build:
+      context: ../..
+      dockerfile: build/dev/roman.Dockerfile
+    container_name: golang
+
+    ports:
+      - '8150:8000'

@@ -1,0 +1,44 @@
+{
+  "allergies": true,
+  "back": {
+    "pain": [
+      "upper",
+      "middle",
+      "lower"
+    ],
+    "spasms": true
+  },
+  "chest": {
+    "pain": true,
+    "breathing": [
+      "good",
+      "bad"
+    ]
+  },
+  "dizzy": true,
+  "fatigue": 4,
+  "fever": true,
+  "headache": true,
+  "knee": {
+    "pain": [
+      "bone",
+      "joint"
+    ]
+  },
+  "memory-fog": true,
+  "mood": 8,
+  "sleep": {
+    "quality": 8.5,
+    "duration": 6.3
+  },
+  "stress": 9,
+  "stomach": {
+    "constipation": true,
+    "cramps": true,
+    "diarreha": true,
+    "indegestion": true,
+    "nausea": true
+  },
+  "twitching": null,
+  "weakness": 1
+}
