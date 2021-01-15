@@ -1,4 +1,4 @@
-module github.com/thedarksociety/go-pherit
+module github.com/iods/go-pherit
 
 go 1.15
 

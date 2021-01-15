@@ -5,7 +5,7 @@ services:
     container_name: golang_dev
     build:
       context: .
-      dockerfile: build/dev/roman.Dockerfile
+      dockerfile: build/dev/Dockerfile
     ports:
       - '8150:8000'
 

@@ -2,7 +2,7 @@ package dataphile
 
 import (
 	"bufio"
-	"github.com/iods/go-golph/internal/common"
+	"github.com/iods/go-pherit/internal/common"
 	"os"
 )
 

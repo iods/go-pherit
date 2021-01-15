@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/thedarksociety/go-pherit/pkg/grape"
-	"github.com/thedarksociety/go-pherit/pkg/greeter"
+	"github.com/iods/go-pherit/pkg/learngo/grape"
+	"github.com/iods/go-pherit/pkg/learngo/greeter"
 	"time"
 )
 
@@ -13,7 +13,7 @@ func main() {
 	channel := make(chan string)
 	go greeter.Send(channel)
 
-	greeter.ReportNap("reveiving go routine.", 5)
+	greeter.ReportNap("receiving go routine.", 5)
 	fmt.Println(<-channel)
 	fmt.Println(<-channel)
 

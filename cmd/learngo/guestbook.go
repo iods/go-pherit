@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/thedarksociety/go-pherit/internal/common"
-	"github.com/thedarksociety/go-pherit/internal/structs"
-	"github.com/thedarksociety/go-pherit/pkg/datafile"
+	"github.com/iods/go-pherit/internal/common"
+	"github.com/iods/go-pherit/internal/structs"
+	"github.com/iods/go-pherit/pkg/datafile"
 	"html/template"
 	"log"
 	"net/http"

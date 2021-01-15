@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/iods/go-golph/internal/roman"
+	"github.com/iods/go-pherit/internal/roman"
 )
 
 func main() {

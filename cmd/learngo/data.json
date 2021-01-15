@@ -35,8 +35,8 @@
   "stomach": {
     "constipation": true,
     "cramps": true,
-    "diarreha": true,
-    "indegestion": true,
+    "diarrhea": true,
+    "indigestion": true,
     "nausea": true
   },
   "twitching": null,
