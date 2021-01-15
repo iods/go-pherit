@@ -1,6 +1,9 @@
 <h1 align="center">
-    <img src="https://github.com/thedarksociety/go-pherit/raw/develop/assets/gopher.png" height="200" />
+    <img src="https://github.com/iods/go-pherit/raw/develop/assets/gopher2.png" height="200" />
 </h1>
+
+Go-Pherit
+=========
 
 An evolving web application, REST, GCP, etc. SDK for my Go projects.
 
