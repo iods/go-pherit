@@ -2,23 +2,24 @@ package main
 
 import (
 	"flag"
-	"fmt"
-	"github.com/iods/go-pherit/pkg/eddie"
+	"github.com/iods/go-pherit/pkg/format"
 )
+
+type Application struct {
+
+}
+
+var (
+	flagword string
+)
+
 
 func main() {
 
-	eddie.Init()
+	flag.StringVar(&flagword, "word", "default-word", "This is the description of the flag. (Required)")
+	flag.String("", "default-f1", "This is the description of the flag.")
 
-	c := &eddie.Car{}
+	flag.Parse()
 
-	for i := 0; i < 30; i++ {
-		c.Model = append(c.Model, "Item " + fmt.Sprint(i))
-	}
-
-	fmt.Println(c.Model[5])
-	fmt.Println(eddie.Flagname)
-	fmt.Println(eddie.Strflag)
-	fmt.Println(eddie.Ip)
-	fmt.Println(flag.Args())
+	format.RenderFlagSet(flag.CommandLine)
 }
