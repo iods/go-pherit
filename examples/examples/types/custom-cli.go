@@ -1,4 +1,4 @@
-package eddie
+package types
 
 import (
 	"fmt"
