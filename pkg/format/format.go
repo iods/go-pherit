@@ -23,8 +23,8 @@ func render(rows [][]string) []byte {
 	table.SetBorder(true)
 	table.SetTablePadding("\t")
 
-	for _, value := range rows {
-		table.Append(value)
+	for _, v := range rows {
+		table.Append(v)
 	}
 
 	table.Render()
@@ -33,15 +33,15 @@ func render(rows [][]string) []byte {
 }
 
 // RenderFlagSet Renders a flag.FlagSet as a table.
-func RenderFlagSet(sets ...*flag.FlagSet) {
+func RenderFlagSet(fss ...*flag.FlagSet) {
 
 	var rows [][]string
 
-	for _, 	set := range sets {
+	for _, 	fs := range fss {
 
-		set.VisitAll(func(f *flag.Flag) {
+		fs.VisitAll(func(f *flag.Flag) {
 			rows = append(rows, []string{
-				"",
+				fs.Name(),
 				f.Name,
 				fmt.Sprintf("%v", f.Value),
 				reflect.TypeOf(f.Value).String(),
