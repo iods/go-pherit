@@ -1,5 +1,10 @@
 package eddie
-
+//      ______    __    ___
+//     / ____/___/ /___/ (_)__
+//    / __/ / __  / __  / / _ \
+//   / /___/ /_/ / /_/ / /  __/
+//  /_____/\__,_/\__,_/_/\___/
+//
 // eddie MGT-COMMAND COMMAND [--options]
 // eddie track sleep --nightly (make an entry of sleep, with that time, and record with others)
 // eddie report sleep --daily (display a log of my average sleep a day)
@@ -8,15 +13,11 @@ package eddie
 
 // Application The default structure of Eddie or any CLI application.
 type Application struct {
-	Name        string   // name of the cli application (in this case Eddie)
-	Version     string   // a semver string (not float) of the version of Eddie (or a cli program)
-	Args		[]string // default is equivalent to os.Args
-	Errors		[]error  // store some runtime errors
+	name        string   // name of the cli application (in this case Eddie)
+	version     string   // a semver string (not float) of the version of Eddie (or a cli program)
+	commands	string // default is equivalent to os.Args
+	args		[]string // default is equivalent to os.Args
+	options     []string // default is equivalent to os.Args
+	errors		[]error  // store some runtime errors
 }
 
-//      ______    __    ___
-//     / ____/___/ /___/ (_)__
-//    / __/ / __  / __  / / _ \
-//   / /___/ /_/ / /_/ / /  __/
-//  /_____/\__,_/\__,_/_/\___/
-//

@@ -1,15 +1,20 @@
 package main
 
 import (
-	"flag"
 	"fmt"
 	"github.com/iods/go-pherit/pkg/eddie"
 )
 
 func main() {
-	c := eddie.App{}
-	c.Setup()
 
-	flag.Parse()
-	fmt.Println(c.GetMessage())
+	eddie.Init()
+
+	c := &eddie.Car{}
+
+	for i := 0; i < 15; i++ {
+		c.Model = append(c.Model, "Item " + fmt.Sprint(i))
+	}
+
+	fmt.Println(c.Model[5])
+	fmt.Println(eddie.Flagname)
 }
