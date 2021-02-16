@@ -1,11 +1,17 @@
 version: '3'
 
 services:
-  development:
-    container_name: golang_dev
-    build:
-      context: .
-      dockerfile: build/dev/Dockerfile
+#  development:
+#    container_name: golang_dev
+#    build:
+#      context: .
+#      dockerfile: build/dev/Dockerfile
+#    ports:
+#      - '8150:8000'
+
+  mongo:
+    image: mongo:latest
     ports:
-      - '8150:8000'
+      - '27017:27017'
+
 
