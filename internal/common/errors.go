@@ -2,10 +2,9 @@ package common
 
 import "log"
 
-/*
-ErrorCheck Function for reporting errors. */
-func ErrorCheck(err error) {
+// HandleError Function for reporting errors, checks if nil else panics.
+func HandleError(err error) {
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalln(err)
 	}
 }
