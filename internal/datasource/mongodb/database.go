@@ -1,8 +1,7 @@
-package database
+package mongodb
 
 import (
 	"context"
-
 	"github.com/iods/go-pherit/internal/common"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
