@@ -3,11 +3,12 @@ package main
 import (
 	"context"
 	"fmt"
-	"go.mongodb.org/mongo-driver/bson"
 	"log"
 
 	"github.com/iods/go-pherit/internal/common"
 	"github.com/iods/go-pherit/internal/database"
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 type Record struct {
@@ -25,6 +26,12 @@ func main() {
 	insertRecords()
 	readRecord()
 	updateRecord()
+	updateRecords()
+	replaceRecord()
+	readRecords()
+	deleteRecord()
+	readRecords()
+	deleteRecords()
 	readRecords()
 }
 
@@ -78,11 +85,64 @@ func readRecords() {
 func updateRecord() {
 	c, err := database.Session()
 	common.HandleError(err)
+	filter := bson.M{"type": "Two"}
 	update := bson.M{}
 	update = bson.M{
-		"$inc": bson.M{
-			"type": 1,
+		"$set": bson.M{
+			"name": "Changed",
 		},
 	}
-	_, err = c.UpdateOne(ctx, bson.M{"name": "Updated"}, update)
+	if result, err := c.UpdateOne(ctx, filter, update); err == nil {
+		log.Println(result)
+	} else {
+		log.Fatal(err)
+	}
+}
+
+func updateRecords() {
+	c, err := database.Session()
+	common.HandleError(err)
+	filter := bson.M{"type": primitive.Regex{Pattern: "Three", Options: ""}}
+	update := bson.M{}
+	update = bson.M{
+		"$set": bson.M{
+			"type": "Updated",
+		},
+	}
+	if result, err := c.UpdateMany(ctx, filter, update); err == nil {
+		log.Println(result)
+	} else {
+		log.Fatal(err)
+	}
+}
+
+func replaceRecord() {
+	record := Record{"Replaced", "One", "This is the first record replaced by another."}
+	c, err := database.Session()
+	common.HandleError(err)
+	if result, err := c.ReplaceOne(ctx, bson.M{"type": "One"}, record); err == nil {
+		log.Println(result)
+	} else {
+		log.Fatal(err)
+	}
+}
+
+func deleteRecord() {
+	c, err := database.Session()
+	common.HandleError(err)
+	if result, err := c.DeleteOne(ctx, bson.M{"name": "One"}); err == nil {
+		log.Println(result)
+	} else {
+		log.Fatal(err)
+	}
+}
+
+func deleteRecords() {
+	c, err := database.Session()
+	common.HandleError(err)
+	if result, err := c.DeleteMany(ctx, bson.M{"name": primitive.Regex{Pattern: "Three", Options: ""}}); err == nil {
+		log.Println(result)
+	} else {
+		log.Fatal(err)
+	}
 }
