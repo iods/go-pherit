@@ -3,58 +3,86 @@ package main
 import (
 	"context"
 	"fmt"
+	"go.mongodb.org/mongo-driver/bson"
 	"log"
 
+	"github.com/iods/go-pherit/internal/common"
 	"github.com/iods/go-pherit/internal/database"
 )
 
 type Record struct {
-	Id int
-	Name string
-	Description string
+	Type        string `bson:"type"`
+	Name 		string `bson:"name"`
+	Description string `bson:"description"`
 }
+
+var (
+	ctx = context.TODO()
+)
 
 func main() {
-	singleRecord()
-	multipleRecords()
+	insertRecord(Record{"One", "One", "This is the first record in the db."})
+	insertRecords()
+	readRecord()
+	updateRecord()
+	readRecords()
 }
 
-func singleRecord() {
-	client, err := database.GetMongoDBConnection()
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	collection := client.Database("testdb").Collection("records")
-
-	one := Record{1, "Rye", "This is the first record in the DB."}
-
-	result, err := collection.InsertOne(context.TODO(), one)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Printf("You are connected motha fucka!, you inserted %s", result.InsertedID)
+func insertRecord(one Record) {
+	c, err := database.Session()
+	common.HandleError(err)
+	result, err := c.InsertOne(ctx, one)
+	common.HandleError(err)
+	fmt.Println("You have inserted one record:", result.InsertedID)
 }
 
-func multipleRecords() {
+func insertRecords() {
+	c, err := database.Session()
+	common.HandleError(err)
+	two := Record{"Two", "Two", "This is the second record added to the collection."}
+	three := Record{"Three", "Three", "This is the third record added to the collection."}
+	r := []interface{}{two, three}
+	result, err := c.InsertMany(ctx, r)
+	common.HandleError(err)
+	fmt.Println("You inserted multiple records: ", result.InsertedIDs)
+}
 
-	client, err := database.GetMongoDBConnection()
-	if err != nil {
+func readRecord() {
+	filter := bson.M{"type": "One"}
+	var record Record
+	c, err := database.Session()
+	common.HandleError(err)
+	result := c.FindOne(ctx, filter)
+	if err := result.Decode(&record); err != nil {
 		log.Fatal(err)
 	}
+	log.Println(record)
+}
 
-	collection := client.Database("dbtest").Collection("records")
-
-	two := Record{2, "Two", "This is the second record added to the collection."}
-	three := Record{3, "Three", "This is the third record added to the collection."}
-
-	collections := []interface{}{two, three}
-
-	result, err := collection.InsertMany(context.TODO(), collections)
-	if err != nil {
+func readRecords() {
+	c, err := database.Session()
+	common.HandleError(err)
+	if result, err := c.Find(ctx, bson.D{}); err == nil {
+		for result.Next(ctx) {
+			var record Record
+			if err := result.Decode(&record); err != nil {
+				log.Fatal(err)
+			}
+			log.Println(record)
+		}
+	} else {
 		log.Fatal(err)
 	}
+}
 
-	fmt.Println("You inserted", result.InsertedIDs)
+func updateRecord() {
+	c, err := database.Session()
+	common.HandleError(err)
+	update := bson.M{}
+	update = bson.M{
+		"$inc": bson.M{
+			"type": 1,
+		},
+	}
+	_, err = c.UpdateOne(ctx, bson.M{"name": "Updated"}, update)
 }
