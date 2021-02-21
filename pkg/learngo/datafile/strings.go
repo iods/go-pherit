@@ -13,12 +13,12 @@ func GetStrings(fileName string) []string {
 	if os.IsNotExist(err) {
 		return nil
 	}
-	common.ErrorCheck(err)
+	errors.ErrorCheck(err)
 	defer file.Close()
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		lines = append(lines, scanner.Text())
 	}
-	common.ErrorCheck(scanner.Err())
+	errors.ErrorCheck(scanner.Err())
 	return lines
 }
