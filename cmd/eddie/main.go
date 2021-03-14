@@ -2,8 +2,9 @@ package main
 
 import (
 	"flag"
-	"github.com/iods/go-pherit/pkg/format"
 	"os"
+
+	"github.com/iods/go-pherit/internal/format"
 )
 
 type Application struct {
