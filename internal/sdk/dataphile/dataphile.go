@@ -2,9 +2,8 @@ package dataphile
 
 import (
 	"bufio"
+	"github.com/iods/go-pherit/internal/common"
 	"os"
-
-	"github.com/iods/go-pherit/internal/helpers/error"
 )
 
 func GetStrings(fileName string) []string {
@@ -13,13 +12,13 @@ func GetStrings(fileName string) []string {
 	if os.IsNotExist(err) {
 		return nil
 	}
-	error.HandleError(err)
+	errors.ErrorCheck(err)
 	defer file.Close()
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		lines = append(lines, scanner.Text())
 	}
-	error.HandleError(scanner.Err())
+	errors.ErrorCheck(scanner.Err())
 	return lines
 }
 
