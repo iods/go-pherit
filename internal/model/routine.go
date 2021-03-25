@@ -23,7 +23,7 @@ type Reminder struct {
 	Routine Routine
 }
 
-type Routine struct {
+type Routines struct {
 
 	Name string
 	Description string
