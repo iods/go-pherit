@@ -1,6 +1,7 @@
 ARG GOLANG_VER=1.15
 FROM golang:$GOLANG_VER
 
+# Default labels & meta information
 LABEL \
     maintaner="Rye Miller" \
     version="0.0"
