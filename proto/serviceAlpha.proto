@@ -7,6 +7,6 @@ message Message {
     string body = 1;
 }
 
-service AlphaService {
-    rpc SayHello(Message) returns (Message) {}
+service ServiceAlpha {
+    rpc GetText(Message) returns (Message) {}
 }

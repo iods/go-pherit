@@ -7,4 +7,6 @@ package globals
 // package as "freeing us from circular dependency hell". These values should
 // only ever be set at startup, but simply available to reference from anywhere.
 
-var keeper string = "John Langland"
+var (
+	server = false // Set to true if the Go Pher-it project will be acting as a server
+)

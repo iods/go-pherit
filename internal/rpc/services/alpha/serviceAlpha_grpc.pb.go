@@ -14,86 +14,86 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// AlphaServiceClient is the client API for AlphaService service.
+// ServiceAlphaClient is the client API for ServiceAlpha service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AlphaServiceClient interface {
-	SayHello(ctx context.Context, in *Message, opts ...grpc.CallOption) (*Message, error)
+type ServiceAlphaClient interface {
+	GetText(ctx context.Context, in *Message, opts ...grpc.CallOption) (*Message, error)
 }
 
-type alphaServiceClient struct {
+type serviceAlphaClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAlphaServiceClient(cc grpc.ClientConnInterface) AlphaServiceClient {
-	return &alphaServiceClient{cc}
+func NewServiceAlphaClient(cc grpc.ClientConnInterface) ServiceAlphaClient {
+	return &serviceAlphaClient{cc}
 }
 
-func (c *alphaServiceClient) SayHello(ctx context.Context, in *Message, opts ...grpc.CallOption) (*Message, error) {
+func (c *serviceAlphaClient) GetText(ctx context.Context, in *Message, opts ...grpc.CallOption) (*Message, error) {
 	out := new(Message)
-	err := c.cc.Invoke(ctx, "/AlphaService/SayHello", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/ServiceAlpha/GetText", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AlphaServiceServer is the server API for AlphaService service.
-// All implementations must embed UnimplementedAlphaServiceServer
+// ServiceAlphaServer is the server API for ServiceAlpha service.
+// All implementations must embed UnimplementedServiceAlphaServer
 // for forward compatibility
-type AlphaServiceServer interface {
-	SayHello(context.Context, *Message) (*Message, error)
-	mustEmbedUnimplementedAlphaServiceServer()
+type ServiceAlphaServer interface {
+	GetText(context.Context, *Message) (*Message, error)
+	mustEmbedUnimplementedServiceAlphaServer()
 }
 
-// UnimplementedAlphaServiceServer must be embedded to have forward compatible implementations.
-type UnimplementedAlphaServiceServer struct {
+// UnimplementedServiceAlphaServer must be embedded to have forward compatible implementations.
+type UnimplementedServiceAlphaServer struct {
 }
 
-func (UnimplementedAlphaServiceServer) SayHello(context.Context, *Message) (*Message, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SayHello not implemented")
+func (UnimplementedServiceAlphaServer) GetText(context.Context, *Message) (*Message, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetText not implemented")
 }
-func (UnimplementedAlphaServiceServer) mustEmbedUnimplementedAlphaServiceServer() {}
+func (UnimplementedServiceAlphaServer) mustEmbedUnimplementedServiceAlphaServer() {}
 
-// UnsafeAlphaServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AlphaServiceServer will
+// UnsafeServiceAlphaServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ServiceAlphaServer will
 // result in compilation errors.
-type UnsafeAlphaServiceServer interface {
-	mustEmbedUnimplementedAlphaServiceServer()
+type UnsafeServiceAlphaServer interface {
+	mustEmbedUnimplementedServiceAlphaServer()
 }
 
-func RegisterAlphaServiceServer(s grpc.ServiceRegistrar, srv AlphaServiceServer) {
-	s.RegisterService(&AlphaService_ServiceDesc, srv)
+func RegisterServiceAlphaServer(s grpc.ServiceRegistrar, srv ServiceAlphaServer) {
+	s.RegisterService(&ServiceAlpha_ServiceDesc, srv)
 }
 
-func _AlphaService_SayHello_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ServiceAlpha_GetText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Message)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AlphaServiceServer).SayHello(ctx, in)
+		return srv.(ServiceAlphaServer).GetText(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/AlphaService/SayHello",
+		FullMethod: "/ServiceAlpha/GetText",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AlphaServiceServer).SayHello(ctx, req.(*Message))
+		return srv.(ServiceAlphaServer).GetText(ctx, req.(*Message))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// AlphaService_ServiceDesc is the grpc.ServiceDesc for AlphaService service.
+// ServiceAlpha_ServiceDesc is the grpc.ServiceDesc for ServiceAlpha service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AlphaService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "AlphaService",
-	HandlerType: (*AlphaServiceServer)(nil),
+var ServiceAlpha_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "ServiceAlpha",
+	HandlerType: (*ServiceAlphaServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "SayHello",
-			Handler:    _AlphaService_SayHello_Handler,
+			MethodName: "GetText",
+			Handler:    _ServiceAlpha_GetText_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
