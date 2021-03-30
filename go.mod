@@ -13,9 +13,9 @@ require (
 	github.com/spf13/pflag v1.0.5 // indirect
 	go.mongodb.org/mongo-driver v1.4.6
 	golang.org/x/net v0.0.0-20210326220855-61e056675ecf // indirect
-	google.golang.org/grpc v1.36.1 // indirect
+	google.golang.org/grpc v1.36.1
 	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.1.0 // indirect
-	google.golang.org/protobuf v1.26.0 // indirect
+	google.golang.org/protobuf v1.26.0
 	gorm.io/driver/sqlite v1.1.4 // indirect
 	gorm.io/gorm v1.20.12 // indirect
 )
