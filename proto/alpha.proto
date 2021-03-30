@@ -1,0 +1,14 @@
+// gRPC Demo .proto file
+syntax = "proto3";
+
+option go_package = "./pb/alpha;alpha";
+
+
+service ChatService {
+    // Sends a greeting
+    rpc SayHello (Message) returns (Message) {}
+}
+
+message Message {
+    string body = 1; // used for serialization, no number can be used twice in an object
+}

@@ -6,7 +6,3 @@ package globals
 // such a value in any given package leads to import issues. So think of this
 // package as "freeing us from circular dependency hell". These values should
 // only ever be set at startup, but simply available to reference from anywhere.
-
-var (
-	server = false // Set to true if the Go Pher-it project will be acting as a server
-)
