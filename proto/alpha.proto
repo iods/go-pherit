@@ -1,0 +1,17 @@
+// Chatter gRPC Demo .proto file
+syntax = "proto3";
+
+option go_package = "./alpha;alpha";
+
+message SumRequest {
+    int32 number_one = 1;
+    int32 number_two = 2;
+}
+
+message SumResponse {
+    int32 number_result = 1;
+}
+
+service AlphaService {
+    rpc Sum(SumRequest) returns (SumResponse) {};
+}
