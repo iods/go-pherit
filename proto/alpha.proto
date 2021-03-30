@@ -1,17 +1,14 @@
-// Chatter gRPC Demo .proto file
+// gRPC Demo .proto file
 syntax = "proto3";
 
-option go_package = "./alpha;alpha";
+option go_package = "./pb/alpha;alpha";
 
-message SumRequest {
-    int32 number_one = 1;
-    int32 number_two = 2;
+
+service ChatService {
+    // Sends a greeting
+    rpc SayHello (Message) returns (Message) {}
 }
 
-message SumResponse {
-    int32 number_result = 1;
-}
-
-service AlphaService {
-    rpc Sum(SumRequest) returns (SumResponse) {};
+message Message {
+    string body = 1; // used for serialization, no number can be used twice in an object
 }

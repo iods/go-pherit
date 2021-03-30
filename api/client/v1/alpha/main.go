@@ -1,28 +1,27 @@
 package main
 
 import (
+	"context"
 	"log"
 
-	"github.com/iods/go-pherit/internal/rpc/services/alpha"
-	"golang.org/x/net/context"
+	"github.com/iods/go-pherit/internal/rpc/pb/alpha"
 	"google.golang.org/grpc"
 )
 
 func main() {
 
-	var conn *grpc.ClientConn
-
-	conn, err := grpc.Dial(":8150", grpc.WithInsecure())
+	var cc *grpc.ClientConn
+	cc, err := grpc.Dial("localhost:8150", grpc.WithInsecure())
 	if err != nil {
-		log.Fatalf("could not connect to %v", err)
+		log.Fatalf("Could not connnect: %v", err)
 	}
-	defer conn.Close()
+	defer cc.Close()
 
-	c := alpha.NewServiceAlphaClient(conn)
-	response, err := c.GetText(context.Background(), &alpha.Message{Body: "Hello, World, from the client."})
-	if err != nil {
-		log.Fatalf("error when calling %v", err)
+	c := alpha.NewChatServiceClient(cc)
+	message := alpha.Message{
+		Body: "Whassssssssssssup from the client.",
 	}
+	response, err := c.SayHello(context.Background(), &message)
 
-	log.Printf("Response from server: %s\n", response.Body)
+	log.Printf("Response from Server: %s", response.Body)
 }

@@ -7,6 +7,6 @@ import (
 )
 
 func main() {
-	mux := &server.CustomServeMux{}
+	mux := &servers.CustomServeMux{}
 	http.ListenAndServe(":8000", mux)
 }
