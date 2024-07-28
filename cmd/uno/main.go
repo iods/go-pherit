@@ -1,7 +1,7 @@
 /*
 Go-Pherit: A Learning Project and SDK in Go
 Copyright (c) 2024 Rye Miller
-https://darksociety.io
+https://ryemiller.com
 */
 
 /*
@@ -19,7 +19,14 @@ Import "fmt" lets you access fmt package's functionality
   in this .go file. It is short for formatting and
   is part of the standard library.
 */
-import "fmt"
+import (
+	"fmt"
+	"github.com/iods/go-pherit/pkg/uno/greeting"
+)
+
+func sayHello(n string, l string) {
+	fmt.Println(greeting.Greet(n, l))
+}
 
 /*
 Function References
@@ -35,9 +42,14 @@ After compiling the code, Go runtime will first
 */
 func main() {
 	// functions code gos here
-	var name = "Gophers"
-	fmt.Println("Hello, " + name)
+
 	// in Go standard output is console
 	// . after function accesses its functions
-	fmt.Println("Rye Miller")
+	sayHello("Elodie!", "Spanish")
+	// additional languages
+	// sayHello("", "")
+	// sayHello("World!", "English")
+	// sayHello("Mot!", "French")
+	// sayHello("Welt!", "German")
+	// sayHello("Mondo!", "Italian")
 }
