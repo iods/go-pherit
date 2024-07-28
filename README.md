@@ -16,6 +16,6 @@ reuse the packages.
 Copyright
 ---------
 
-Copyright (c) 2020, Rye Miller
+Copyright (c) 2020-Present, Rye Miller
 
 Following the https://github.com/golang-standards/project-layout
